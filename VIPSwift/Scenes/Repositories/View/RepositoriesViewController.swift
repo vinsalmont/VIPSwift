@@ -14,12 +14,15 @@ protocol RepositoriesDisplayLogic: class {
 }
 
 class RepositoriesViewController: UIViewController {
-    var interactor: RepositoriesBusinessLogic?
-    private let repositoryCellIdentifier = "RepositoryTableViewCell"
+    // MARK: Outlets
     @IBOutlet weak var lottieView: AnimationView!
     @IBOutlet weak var placeholderView: UIView!
     @IBOutlet weak var placeholderLabel: UILabel!
     @IBOutlet weak var repositoriesTableView: UITableView!
+
+    // MARK: Properties
+    var interactor: RepositoriesBusinessLogic?
+    private let repositoryCellIdentifier = "RepositoryTableViewCell"
 
     // MARK: Initialization
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {

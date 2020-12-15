@@ -12,6 +12,12 @@
 		87403A3425886E47009C10AE /* lottie-search.json in Resources */ = {isa = PBXBuildFile; fileRef = 87403A3325886E47009C10AE /* lottie-search.json */; };
 		87403A3C25887035009C10AE /* github-logo.json in Resources */ = {isa = PBXBuildFile; fileRef = 87403A3B25887035009C10AE /* github-logo.json */; };
 		87403A4425887176009C10AE /* error-github-logo.json in Resources */ = {isa = PBXBuildFile; fileRef = 87403A4325887176009C10AE /* error-github-logo.json */; };
+		87403A522588752D009C10AE /* RepositoryDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87403A4C2588752D009C10AE /* RepositoryDetailPresenter.swift */; };
+		87403A532588752D009C10AE /* RepositoryDetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87403A4D2588752D009C10AE /* RepositoryDetailWorker.swift */; };
+		87403A542588752D009C10AE /* RepositoryDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87403A4E2588752D009C10AE /* RepositoryDetailRouter.swift */; };
+		87403A552588752D009C10AE /* RepositoryDetailModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87403A4F2588752D009C10AE /* RepositoryDetailModels.swift */; };
+		87403A562588752D009C10AE /* RepositoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87403A502588752D009C10AE /* RepositoryDetailViewController.swift */; };
+		87403A572588752D009C10AE /* RepositoryDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87403A512588752D009C10AE /* RepositoryDetailInteractor.swift */; };
 		87BE956D25883B0200815444 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BE956C25883B0200815444 /* AppDelegate.swift */; };
 		87BE956F25883B0200815444 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BE956E25883B0200815444 /* SceneDelegate.swift */; };
 		87BE957425883B0200815444 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87BE957225883B0200815444 /* Main.storyboard */; };
@@ -64,6 +70,12 @@
 		87403A3325886E47009C10AE /* lottie-search.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "lottie-search.json"; sourceTree = "<group>"; };
 		87403A3B25887035009C10AE /* github-logo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "github-logo.json"; sourceTree = "<group>"; };
 		87403A4325887176009C10AE /* error-github-logo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "error-github-logo.json"; sourceTree = "<group>"; };
+		87403A4C2588752D009C10AE /* RepositoryDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailPresenter.swift; sourceTree = "<group>"; };
+		87403A4D2588752D009C10AE /* RepositoryDetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailWorker.swift; sourceTree = "<group>"; };
+		87403A4E2588752D009C10AE /* RepositoryDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailRouter.swift; sourceTree = "<group>"; };
+		87403A4F2588752D009C10AE /* RepositoryDetailModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailModels.swift; sourceTree = "<group>"; };
+		87403A502588752D009C10AE /* RepositoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailViewController.swift; sourceTree = "<group>"; };
+		87403A512588752D009C10AE /* RepositoryDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailInteractor.swift; sourceTree = "<group>"; };
 		87BE956925883B0200815444 /* VIPSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VIPSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87BE956C25883B0200815444 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87BE956E25883B0200815444 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +167,67 @@
 			path = LottieFiles;
 			sourceTree = "<group>";
 		};
+		87403A4B25887516009C10AE /* RepositoryDetail */ = {
+			isa = PBXGroup;
+			children = (
+				87403A6225887577009C10AE /* Entity */,
+				87403A5F2588755C009C10AE /* Interactor */,
+				87403A5E25887554009C10AE /* Presenter */,
+				87403A632588757D009C10AE /* Router */,
+				87403A612588756F009C10AE /* View */,
+				87403A6025887565009C10AE /* Worker */,
+			);
+			path = RepositoryDetail;
+			sourceTree = "<group>";
+		};
+		87403A5E25887554009C10AE /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				87403A4C2588752D009C10AE /* RepositoryDetailPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		87403A5F2588755C009C10AE /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				87403A512588752D009C10AE /* RepositoryDetailInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		87403A6025887565009C10AE /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				87403A4D2588752D009C10AE /* RepositoryDetailWorker.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
+		87403A612588756F009C10AE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				87403A502588752D009C10AE /* RepositoryDetailViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		87403A6225887577009C10AE /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				87403A4F2588752D009C10AE /* RepositoryDetailModels.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		87403A632588757D009C10AE /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				87403A4E2588752D009C10AE /* RepositoryDetailRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		87BE956025883B0200815444 = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +281,7 @@
 		87BE95A225883C7600815444 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				87403A4B25887516009C10AE /* RepositoryDetail */,
 				87BE95A825883D1000815444 /* Repositories */,
 				87BE95A625883CA900815444 /* LaunchScreen */,
 			);
@@ -603,16 +677,22 @@
 				87BE95BC25883D8F00815444 /* NetworkService.swift in Sources */,
 				87BE95FB258843F700815444 /* RepositoryModel.swift in Sources */,
 				87BE960C2588448000815444 /* RepositoriesResponseModel.swift in Sources */,
+				87403A552588752D009C10AE /* RepositoryDetailModels.swift in Sources */,
 				87BE96042588441600815444 /* OwnerModel.swift in Sources */,
 				87BE95E625883F4E00815444 /* RepositoryTableViewCell.swift in Sources */,
 				87BE957725883B0200815444 /* VIPSwift.xcdatamodeld in Sources */,
 				87BE95B125883D3900815444 /* RepositoriesRouter.swift in Sources */,
+				87403A572588752D009C10AE /* RepositoryDetailInteractor.swift in Sources */,
+				87403A522588752D009C10AE /* RepositoryDetailPresenter.swift in Sources */,
 				87BE956D25883B0200815444 /* AppDelegate.swift in Sources */,
 				87BE95B425883D3900815444 /* RepositoriesInteractor.swift in Sources */,
 				87403A2025885D30009C10AE /* UIImageView+Ext.swift in Sources */,
 				87BE95D825883EB000815444 /* RepositoriesAPI.swift in Sources */,
+				87403A562588752D009C10AE /* RepositoryDetailViewController.swift in Sources */,
 				87BE95B325883D3900815444 /* RepositoriesViewController.swift in Sources */,
 				87BE956F25883B0200815444 /* SceneDelegate.swift in Sources */,
+				87403A532588752D009C10AE /* RepositoryDetailWorker.swift in Sources */,
+				87403A542588752D009C10AE /* RepositoryDetailRouter.swift in Sources */,
 				87BE95AF25883D3900815444 /* RepositoriesPresenter.swift in Sources */,
 				87BE95B025883D3900815444 /* RepositoriesWorker.swift in Sources */,
 				87BE95B225883D3900815444 /* RepositoriesModels.swift in Sources */,

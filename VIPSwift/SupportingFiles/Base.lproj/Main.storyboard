@@ -101,6 +101,52 @@
             </objects>
             <point key="canvasLocation" x="645" y="-40"/>
         </scene>
+        <!--Repository Detail View Controller-->
+        <scene sceneID="QPG-u9-6Gy">
+            <objects>
+                <viewController id="1hC-Y9-qpH" customClass="RepositoryDetailViewController" customModule="VIPSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mIF-ES-40R">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Vm-Zf-JZm">
+                                <rect key="frame" x="20" y="122" width="87" height="76"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="87" id="DOb-Oo-v1X"/>
+                                    <constraint firstAttribute="height" constant="76" id="Xxi-bk-9FM"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repository Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diC-ln-wjh">
+                                <rect key="frame" x="122" y="122" width="272" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Repository description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rt-z3-oYq">
+                                <rect key="frame" x="122" y="157" width="272" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="MS8-z4-drB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0rt-z3-oYq" firstAttribute="top" secondItem="diC-ln-wjh" secondAttribute="bottom" constant="14" id="2Kj-MT-62C"/>
+                            <constraint firstItem="0rt-z3-oYq" firstAttribute="leading" secondItem="2Vm-Zf-JZm" secondAttribute="trailing" constant="15" id="Bfd-3T-SNK"/>
+                            <constraint firstItem="2Vm-Zf-JZm" firstAttribute="leading" secondItem="MS8-z4-drB" secondAttribute="leading" constant="20" id="fZG-wR-Rjs"/>
+                            <constraint firstItem="diC-ln-wjh" firstAttribute="top" secondItem="2Vm-Zf-JZm" secondAttribute="top" id="idr-US-qDy"/>
+                            <constraint firstItem="diC-ln-wjh" firstAttribute="leading" secondItem="2Vm-Zf-JZm" secondAttribute="trailing" constant="15" id="ixS-vj-seA"/>
+                            <constraint firstItem="MS8-z4-drB" firstAttribute="trailing" secondItem="diC-ln-wjh" secondAttribute="trailing" constant="20" id="kGN-UO-eCW"/>
+                            <constraint firstItem="2Vm-Zf-JZm" firstAttribute="top" secondItem="MS8-z4-drB" secondAttribute="top" constant="34" id="vIB-vF-zdd"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PT4-Dl-Kuj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1540.5797101449277" y="-40.178571428571423"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="txS-2Z-Ii6"/>
