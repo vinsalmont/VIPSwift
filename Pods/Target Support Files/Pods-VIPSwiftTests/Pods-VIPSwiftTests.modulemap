@@ -1,0 +1,6 @@
+framework module Pods_VIPSwiftTests {
+  umbrella header "Pods-VIPSwiftTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
