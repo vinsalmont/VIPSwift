@@ -13,7 +13,7 @@ protocol RepositoryDetailPresentationLogic {
 
 class RepositoryDetailPresenter: RepositoryDetailPresentationLogic {
     weak var viewController: RepositoryDetailDisplayLogic?
-
+    
     func showRepository(response: RepositoryDetail.GetRepository.Response) {
         let displayedRepository = RepositoryDetail.GetRepository.ViewModel.DiplayedRepository(
             id: response.repository.id ?? 0,

@@ -7,9 +7,5 @@
 
 import UIKit
 
-class RepositoryDetailWorker
-{
-  func doSomeWork()
-  {
-  }
+class RepositoryDetailWorker {
 }

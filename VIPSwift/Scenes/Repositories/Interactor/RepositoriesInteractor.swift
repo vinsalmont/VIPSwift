@@ -14,20 +14,18 @@ protocol RepositoriesBusinessLogic: class {
 }
 
 protocol RepositoriesDataStore {
-    var repositories: [RepositoryModel]? { get }
+    var repositories: [RepositoryModel]? { get set }
 }
 
-class RepositoriesInteractor: RepositoriesDataStore {
+class RepositoriesInteractor: RepositoriesBusinessLogic, RepositoriesDataStore {
     var presenter: RepositoriesPresentationLogic?
     var worker = RepositoriesWorker()
     var repositories: [RepositoryModel]?
-}
-
-// MARK: RepositoriesBusinessLogic
-extension RepositoriesInteractor: RepositoriesBusinessLogic {
+    
     func searchRepositories(request: Repositories.FetchRepositories.Request) {
         worker.searchRepositories(query: request.query, page: request.page, success: { (response) in
             let repositoriesReponse = Repositories.FetchRepositories.Response(totalCount: response.totalCount, items: response.items)
+            self.repositories = repositoriesReponse.items
             self.presenter?.presentRepositories(response: repositoriesReponse)
         }, failure: { (error) in
             let repositoriesError = Repositories.FetchRepositories.Error(message: error.localizedDescription)

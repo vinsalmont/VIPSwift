@@ -16,9 +16,9 @@ protocol RepositoryDetailDataStore {
 }
 
 class RepositoryDetailInteractor: RepositoryDetailDataStore {
-  var presenter: RepositoryDetailPresentationLogic?
-  var worker: RepositoryDetailWorker?
-  var repository: RepositoryModel?
+    var presenter: RepositoryDetailPresentationLogic?
+    var worker: RepositoryDetailWorker?
+    var repository: RepositoryModel?
 }
 
 // MARK: RepositoriesBusinessLogic

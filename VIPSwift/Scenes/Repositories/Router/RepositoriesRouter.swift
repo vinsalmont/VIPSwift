@@ -7,22 +7,26 @@
 
 import UIKit
 
-@objc protocol RepositoriesRoutingLogic {
-//    func showRepositoryDetail(source: RepositoriesViewController, destination: Reposi)
+protocol RepositoriesRoutingLogic {
+    func showRepositoryDetail(selectedRow: Int)
 }
 
 protocol RepositoriesDataPassing {
     var dataStore: RepositoriesDataStore? { get }
 }
 
-class RepositoriesRouter: NSObject {
+class RepositoriesRouter: NSObject, RepositoriesDataPassing, RepositoriesRoutingLogic {
     weak var viewController: RepositoriesViewController?
     var dataStore: RepositoriesDataStore?
-}
-
-extension RepositoriesRouter: RepositoriesRoutingLogic {
-//    func showRepositoryDetail() {
-//
-//    }
+    
+    func showRepositoryDetail(selectedRow: Int) {
+        if let navigationController = viewController?.navigationController {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            guard let detailViewController = storyboard.instantiateViewController(withIdentifier: "RepositoryDetailViewController") as? RepositoryDetailViewController else { return }
+            
+            detailViewController.router?.dataStore?.repository = viewController?.router?.dataStore?.repositories?[selectedRow]
+            navigationController.pushViewController(detailViewController, animated: true)
+        }
+    }
 }
 

@@ -16,7 +16,7 @@ class RepositoriesWorker: RepositoriesWorkerProtocol {
                             page: Int,
                             success: @escaping ((RepositoriesResponseModel) -> Void),
                             failure: @escaping ((Error) -> Void)) {
-
+        
         NetworkService.shared.request(endpoint: RepositoriesEndpoint.search(query: query, page: page), success: { (responseData) in
             do {
                 let decoder = JSONDecoder()
