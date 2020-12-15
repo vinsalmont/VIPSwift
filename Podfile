@@ -8,6 +8,7 @@ target 'VIPSwift' do
       pod 'SwiftyJSON'
       pod 'Kingfisher'
       pod 'OHHTTPStubs/Swift'
+      pod 'lottie-ios'
 
   # Pods for VIPSwift
 

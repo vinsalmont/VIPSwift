@@ -3,39 +3,11 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Repositories-->
-        <scene sceneID="rmx-f8-UQp">
-            <objects>
-                <tableViewController id="4bB-nI-kVX" customClass="RepositoriesViewController" customModule="VIPSwift" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Bbt-go-d3O">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="5tT-NO-kro">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5tT-NO-kro" id="tEY-Co-0As">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="4bB-nI-kVX" id="3Vc-IS-lPp"/>
-                            <outlet property="delegate" destination="4bB-nI-kVX" id="uQi-kE-ZDd"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Repositories" id="fJx-nF-522"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Fzf-18-1VR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="671.01449275362324" y="-39.508928571428569"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="pLT-Ym-ZAF">
             <objects>
@@ -47,14 +19,92 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="4bB-nI-kVX" kind="relationship" relationship="rootViewController" id="ego-Fw-zYT"/>
+                        <segue destination="AwZ-eS-7n8" kind="relationship" relationship="rootViewController" id="sA7-y1-vYe"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QRj-BE-gki" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-239.13043478260872" y="-39.508928571428569"/>
         </scene>
+        <!--Repositories-->
+        <scene sceneID="g5l-sY-RQY">
+            <objects>
+                <viewController title="Repositories" id="AwZ-eS-7n8" customClass="RepositoriesViewController" customModule="VIPSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jXb-TA-OBe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jW5-Kr-E3G">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bmp-BJ-lmq" userLabel="Error View">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search a keyword above and find the best repositories!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N1a-wF-wcU">
+                                                <rect key="frame" x="87" y="366.5" width="240" height="41"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="txS-2Z-Ii6" customClass="AnimationView" customModule="Lottie">
+                                                <rect key="frame" x="87" y="218.5" width="240" height="128"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="240" id="327-uV-T09"/>
+                                                    <constraint firstAttribute="height" constant="128" id="Zgb-JL-QEW"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="github-logo"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="N1a-wF-wcU" firstAttribute="leading" secondItem="txS-2Z-Ii6" secondAttribute="leading" id="9GG-G8-pPR"/>
+                                            <constraint firstItem="N1a-wF-wcU" firstAttribute="top" secondItem="txS-2Z-Ii6" secondAttribute="bottom" constant="20" id="OvA-MI-Fq7"/>
+                                            <constraint firstItem="N1a-wF-wcU" firstAttribute="trailing" secondItem="txS-2Z-Ii6" secondAttribute="trailing" id="ZpH-c0-onw"/>
+                                            <constraint firstItem="txS-2Z-Ii6" firstAttribute="centerX" secondItem="Bmp-BJ-lmq" secondAttribute="centerX" id="fd3-ef-3fD"/>
+                                            <constraint firstItem="N1a-wF-wcU" firstAttribute="centerY" secondItem="Bmp-BJ-lmq" secondAttribute="centerY" id="t46-Q0-9xD"/>
+                                        </constraints>
+                                    </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o0a-Ae-HrV">
+                                        <rect key="frame" x="0.0" y="774" width="414" height="0.0"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Bmp-BJ-lmq" secondAttribute="bottom" id="HHM-xQ-Qxv"/>
+                                    <constraint firstAttribute="trailing" secondItem="Bmp-BJ-lmq" secondAttribute="trailing" id="Hbw-8m-Wix"/>
+                                    <constraint firstItem="Bmp-BJ-lmq" firstAttribute="leading" secondItem="jW5-Kr-E3G" secondAttribute="leading" id="Mfw-t9-sz7"/>
+                                    <constraint firstItem="Bmp-BJ-lmq" firstAttribute="top" secondItem="jW5-Kr-E3G" secondAttribute="top" id="vLv-6u-fhp"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="8hL-Tw-gvB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="jW5-Kr-E3G" firstAttribute="leading" secondItem="8hL-Tw-gvB" secondAttribute="leading" id="5kJ-BH-uU3"/>
+                            <constraint firstItem="8hL-Tw-gvB" firstAttribute="trailing" secondItem="jW5-Kr-E3G" secondAttribute="trailing" id="BDI-lt-PIy"/>
+                            <constraint firstItem="jW5-Kr-E3G" firstAttribute="top" secondItem="8hL-Tw-gvB" secondAttribute="top" id="TDr-E8-gNw"/>
+                            <constraint firstItem="8hL-Tw-gvB" firstAttribute="bottom" secondItem="jW5-Kr-E3G" secondAttribute="bottom" id="Tzz-ph-VYn"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Repositories" id="tbH-1G-ZP7"/>
+                    <connections>
+                        <outlet property="lottieView" destination="txS-2Z-Ii6" id="W5M-91-dIC"/>
+                        <outlet property="placeholderLabel" destination="N1a-wF-wcU" id="acl-kG-m9Y"/>
+                        <outlet property="placeholderView" destination="Bmp-BJ-lmq" id="K2s-qB-1w1"/>
+                        <outlet property="repositoriesTableView" destination="o0a-Ae-HrV" id="cl8-cU-V4z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o6O-G9-Cm1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="645" y="-40"/>
+        </scene>
     </scenes>
+    <designables>
+        <designable name="txS-2Z-Ii6"/>
+    </designables>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

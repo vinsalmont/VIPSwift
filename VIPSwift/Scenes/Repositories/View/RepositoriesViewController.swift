@@ -6,16 +6,20 @@
 //
 
 import UIKit
-
+import Lottie
 
 protocol RepositoriesDisplayLogic: class {
     func showError(message: String)
     func showRepositories(viewModel: Repositories.FetchRepositories.ViewModel)
 }
 
-class RepositoriesViewController: UITableViewController {
+class RepositoriesViewController: UIViewController {
     var interactor: RepositoriesBusinessLogic?
     private let repositoryCellIdentifier = "RepositoryTableViewCell"
+    @IBOutlet weak var lottieView: AnimationView!
+    @IBOutlet weak var placeholderView: UIView!
+    @IBOutlet weak var placeholderLabel: UILabel!
+    @IBOutlet weak var repositoriesTableView: UITableView!
 
     // MARK: Initialization
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -35,7 +39,7 @@ class RepositoriesViewController: UITableViewController {
         let router = RepositoriesRouter()
 
         viewController.interactor = interactor
-//        viewController.router = router
+        //        viewController.router = router
         interactor.presenter = presenter
         presenter.viewController = viewController
         router.viewController = viewController
@@ -47,6 +51,7 @@ class RepositoriesViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerTableViewCell()
+        setupLottie()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -58,6 +63,31 @@ class RepositoriesViewController: UITableViewController {
         self.navigationItem.searchController = search
     }
 
+    // MARK: Lottie Configuration
+    private func setupLottie() {
+        lottieView.contentMode = .scaleAspectFit
+        lottieView.loopMode = .loop
+        lottieView.animationSpeed = 0.5
+        lottieView.play()
+    }
+
+    private func initialPlaceholder() {
+        placeholderView.isHidden = false
+        placeholderLabel.text = "Search a keyword above and find the best repositories!"
+        lottieView.play()
+    }
+
+    private func errorPlaceholder() {
+        placeholderView.isHidden = false
+        placeholderLabel.text = "Ohhh! We could not find any results for this query"
+        lottieView.play()
+    }
+
+    private func hidePlaceholder() {
+        placeholderView.isHidden = true
+        lottieView.stop()
+    }
+
     // MARK: Fetch Repositories
     private var displayedRepositories = [Repositories.FetchRepositories.ViewModel.DisplayedRepository]()
     private var page = 1
@@ -67,7 +97,8 @@ class RepositoriesViewController: UITableViewController {
     @objc private func fetchRepositories(_ searchBar: UISearchBar) {
         displayedRepositories = []
         guard let query = searchBar.text, query.trimmingCharacters(in: .whitespaces) != "" else {
-            tableView.reloadData()
+            initialPlaceholder()
+            repositoriesTableView.reloadData()
             return
         }
         self.query = query
@@ -82,28 +113,33 @@ class RepositoriesViewController: UITableViewController {
         interactor?.searchRepositories(request: request)
     }
 
-   // MARK: UITableViewDataSource && UITableViewDelegate
+    // MARK: Setup Table View
     private func registerTableViewCell() {
+        repositoriesTableView.delegate = self
+        repositoriesTableView.dataSource = self
         let cell = UINib(nibName: repositoryCellIdentifier, bundle: nil)
-        tableView.register(cell, forCellReuseIdentifier: repositoryCellIdentifier)
+        repositoriesTableView.register(cell, forCellReuseIdentifier: repositoryCellIdentifier)
     }
+}
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+// MARK: UITableViewDataSource && UITableViewDelegate
+extension RepositoriesViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return displayedRepositories.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: repositoryCellIdentifier, for: indexPath) as? RepositoryTableViewCell else { return UITableViewCell() }
         let displayedRepository = displayedRepositories[indexPath.row]
         cell.setup(viewModel: displayedRepository)
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 
         if indexPath.row == displayedRepositories.count - 1  {
             fetchMoreRepositories()
@@ -114,19 +150,23 @@ class RepositoriesViewController: UITableViewController {
 // MARK: RepositoriesDisplayLogic
 extension RepositoriesViewController: RepositoriesDisplayLogic {
     func showError(message: String) {
-        // Show error alert
+       errorPlaceholder()
     }
 
     func showRepositories(viewModel: Repositories.FetchRepositories.ViewModel) {
-        
+        hidePlaceholder()
+
         displayedRepositories.append(contentsOf: viewModel.displayedRepositories)
-        
-        tableView.reloadData()
+        repositoriesTableView.reloadData()
     }
 }
 
 // MARK: UISearchBarDelegate
 extension RepositoriesViewController: UISearchBarDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        initialPlaceholder()
+    }
+
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.fetchRepositories(_:)), object: searchBar)
         perform(#selector(self.fetchRepositories(_:)), with: searchBar, afterDelay: 0.40)
