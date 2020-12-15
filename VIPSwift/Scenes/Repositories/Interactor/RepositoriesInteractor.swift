@@ -25,10 +25,15 @@ class RepositoriesInteractor: RepositoriesBusinessLogic, RepositoriesDataStore {
     func searchRepositories(request: Repositories.FetchRepositories.Request) {
         worker.searchRepositories(query: request.query, page: request.page, success: { (response) in
             let repositoriesReponse = Repositories.FetchRepositories.Response(totalCount: response.totalCount, items: response.items)
-            self.repositories = repositoriesReponse.items
+            if request.page > 1 {
+                self.repositories?.append(contentsOf: repositoriesReponse.items)
+            } else {
+                self.repositories = repositoriesReponse.items
+            }
             self.presenter?.presentRepositories(response: repositoriesReponse)
         }, failure: { (error) in
             let repositoriesError = Repositories.FetchRepositories.Error(message: error.localizedDescription)
+            self.repositories = []
             self.presenter?.presentError(error: repositoriesError)
         })
     }

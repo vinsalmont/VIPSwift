@@ -15,7 +15,7 @@ protocol RepositoriesDisplayLogic: class {
 
 class RepositoriesViewController: UIViewController {
     // MARK: Outlets
-    @IBOutlet weak var lottieView: AnimationView!
+    @IBOutlet weak var lottieViewPlaceholder: UIView!
     @IBOutlet weak var placeholderView: UIView!
     @IBOutlet weak var placeholderLabel: UILabel!
     @IBOutlet weak var repositoriesTableView: UITableView!
@@ -24,7 +24,8 @@ class RepositoriesViewController: UIViewController {
     var interactor: RepositoriesBusinessLogic?
     var router: (NSObjectProtocol & RepositoriesRoutingLogic & RepositoriesDataPassing)?
     private let repositoryCellIdentifier = "RepositoryTableViewCell"
-    
+    private var animationView: AnimationView?
+
     // MARK: Initialization
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -55,11 +56,7 @@ class RepositoriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerTableViewCell()
-        setupLottie()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        initialPlaceholder()
         navigationController?.navigationBar.prefersLargeTitles = true
         let search = UISearchController(searchResultsController: nil)
         search.obscuresBackgroundDuringPresentation = false
@@ -67,37 +64,61 @@ class RepositoriesViewController: UIViewController {
         self.navigationItem.searchController = search
     }
     
-    // MARK: Lottie Configuration
-    private func setupLottie() {
-        lottieView.contentMode = .scaleAspectFit
-        lottieView.loopMode = .loop
-        lottieView.animationSpeed = 0.5
-        lottieView.play()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
+    // MARK: Lottie Configuration
+    private func setupLottie(animationView: AnimationView) {
+        animationView.frame = lottieViewPlaceholder.bounds
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .loop
+        animationView.animationSpeed = 0.5
+        lottieViewPlaceholder.subviews.forEach { $0.removeFromSuperview() }
+        lottieViewPlaceholder.addSubview(animationView)
+
+        animationView.play()
+    }
+
     private func initialPlaceholder() {
         placeholderView.isHidden = false
         placeholderLabel.text = "Search a keyword above and find the best repositories!"
-        lottieView.play()
+
+        animationView = .init(name: "github-logo")
+        if let animationView = animationView {
+            setupLottie(animationView: animationView)
+        }
     }
     
     private func errorPlaceholder() {
         placeholderView.isHidden = false
         placeholderLabel.text = "Ohhh! We could not find any results for this query"
-        lottieView.play()
+
+        animationView = .init(name: "error")
+        if let animationView = animationView {
+            setupLottie(animationView: animationView)
+        }
+    }
+
+    private func loadinglaceholder() {
+        placeholderView.isHidden = false
+        placeholderLabel.text = "Searching"
+
+        animationView = .init(name: "loading")
+        if let animationView = animationView {
+            setupLottie(animationView: animationView)
+        }
     }
     
     private func hidePlaceholder() {
         placeholderView.isHidden = true
-        lottieView.stop()
     }
     
     // MARK: Fetch Repositories
     var displayedRepositories = [Repositories.FetchRepositories.ViewModel.DisplayedRepository]()
     private var page = 1
     private var query = ""
-    private var isLoading = false
-    
+
     @objc private func fetchRepositories(_ searchBar: UISearchBar) {
         displayedRepositories = []
         guard let query = searchBar.text, query.trimmingCharacters(in: .whitespaces) != "" else {
@@ -105,6 +126,7 @@ class RepositoriesViewController: UIViewController {
             repositoriesTableView.reloadData()
             return
         }
+        loadinglaceholder()
         self.query = query
         self.page = 1
         let request = Repositories.FetchRepositories.Request(query: query, page: page)
@@ -144,8 +166,7 @@ extension RepositoriesViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
-        if indexPath.row == displayedRepositories.count - 1  {
+        if displayedRepositories.count > 10 && indexPath.row == displayedRepositories.count - 10 {
             fetchMoreRepositories()
         }
     }
