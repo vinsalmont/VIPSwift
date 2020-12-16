@@ -78,6 +78,7 @@ class RepositoriesInteractorTests: XCTestCase {
         // Then
         XCTAssert(workerSpy.searchRepositoriesCalled, "Should've asked Worker to search the repositories")
         XCTAssert(presenterSpy.presentRepositoriesCalled, "Should've asked the presenter to format the results")
+        XCTAssertFalse(presenterSpy.presentErrorCalled, "Shouldn't have presented the error")
     }
     
     func testShouldNotFetchFromWorker() {
@@ -93,6 +94,7 @@ class RepositoriesInteractorTests: XCTestCase {
         
         // Then
         XCTAssert(workerSpy.searchRepositoriesCalled, "Should've asked Worker to search the repositories")
+        XCTAssertFalse(presenterSpy.presentRepositoriesCalled, "Shouldn't have asked the presenter to format the results")
         XCTAssert(presenterSpy.presentErrorCalled, "Should've presented the error")
     }
 }
