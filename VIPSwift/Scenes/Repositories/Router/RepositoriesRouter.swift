@@ -18,13 +18,14 @@ protocol RepositoriesDataPassing {
 class RepositoriesRouter: NSObject, RepositoriesDataPassing, RepositoriesRoutingLogic {
     weak var viewController: RepositoriesViewController?
     var dataStore: RepositoriesDataStore?
-    
+
     func showRepositoryDetail(selectedRow: Int) {
         if let navigationController = viewController?.navigationController {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            guard let detailViewController = storyboard.instantiateViewController(withIdentifier: "RepositoryDetailViewController") as? RepositoryDetailViewController else { return }
-            
-            detailViewController.router?.dataStore?.repository = viewController?.router?.dataStore?.repositories?[selectedRow]
+            guard let detailViewController = storyboard.instantiateViewController(withIdentifier: "RepositoryDetailViewController") as? RepositoryDetailViewController,
+                  let repository = viewController?.router?.dataStore?.repositories?[selectedRow] else { return }
+
+            detailViewController.router?.dataStore?.repository = repository
             navigationController.pushViewController(detailViewController, animated: true)
         }
     }

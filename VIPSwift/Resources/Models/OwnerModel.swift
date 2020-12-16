@@ -12,7 +12,7 @@ struct OwnerModel: Codable {
     let login: String?
     let avatarUrl: String?
     let url: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case id
         case login

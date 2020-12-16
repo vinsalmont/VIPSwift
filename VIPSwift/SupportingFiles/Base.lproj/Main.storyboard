@@ -29,7 +29,7 @@
         <!--Repositories-->
         <scene sceneID="g5l-sY-RQY">
             <objects>
-                <viewController title="Repositories" id="AwZ-eS-7n8" customClass="RepositoriesViewController" customModule="VIPSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RepositoriesViewController" title="Repositories" id="AwZ-eS-7n8" customClass="RepositoriesViewController" customModule="VIPSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jXb-TA-OBe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

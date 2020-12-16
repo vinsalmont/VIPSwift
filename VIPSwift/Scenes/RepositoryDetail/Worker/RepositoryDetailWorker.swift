@@ -7,5 +7,4 @@
 
 import UIKit
 
-class RepositoryDetailWorker {
-}
+class RepositoryDetailWorker {}

@@ -8,14 +8,13 @@
 import UIKit
 
 enum RepositoryDetail {
-    
     enum GetRepository {
         struct Request { }
         struct Response {
             var repository: RepositoryModel
         }
         struct ViewModel {
-            struct DiplayedRepository {
+            struct DisplayedRepository {
                 var id: Int
                 var fullName: String
                 var description: String
@@ -25,8 +24,9 @@ enum RepositoryDetail {
                 var login: String
                 var avatarURL: String
                 var openIssues: Int
-                var forks: Int        }
-            var displayedRepository: DiplayedRepository
+                var forks: Int
+            }
+            var displayedRepository: DisplayedRepository
         }
     }
 }

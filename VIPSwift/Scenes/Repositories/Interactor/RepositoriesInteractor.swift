@@ -5,8 +5,6 @@
 //  Created by Vinicius Salmont on 14/12/20.
 //
 
-import UIKit
-
 import Foundation
 
 protocol RepositoriesBusinessLogic: class {
@@ -25,15 +23,19 @@ class RepositoriesInteractor: RepositoriesBusinessLogic, RepositoriesDataStore {
     func searchRepositories(request: Repositories.FetchRepositories.Request) {
         worker.searchRepositories(query: request.query, page: request.page, success: { (response) in
             let repositoriesReponse = Repositories.FetchRepositories.Response(totalCount: response.totalCount, items: response.items)
-            if request.page > 1 {
-                self.repositories?.append(contentsOf: repositoriesReponse.items)
-            } else {
+
+            if request.page == 1 {
                 self.repositories = repositoriesReponse.items
+            } else {
+                self.repositories?.append(contentsOf: repositoriesReponse.items)
             }
+
             self.presenter?.presentRepositories(response: repositoriesReponse)
         }, failure: { (error) in
-            let repositoriesError = Repositories.FetchRepositories.Error(message: error.localizedDescription)
             self.repositories = []
+
+            let repositoriesError = Repositories.FetchRepositories.Error(message: error.localizedDescription)
+
             self.presenter?.presentError(error: repositoriesError)
         })
     }

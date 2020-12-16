@@ -14,7 +14,7 @@ protocol RepositoryDetailDisplayLogic: class {
 class RepositoryDetailViewController: UIViewController {
     var interactor: RepositoryDetailBusinessLogic?
     var router: (NSObjectProtocol & RepositoryDetailRoutingLogic & RepositoryDetailDataPassing)?
-    
+
     @IBOutlet weak var userAvatarImageView: UIImageView!
     @IBOutlet weak var repositoryNameLabel: UILabel!
     @IBOutlet weak var repositoryDescriptionLabel: UILabel!
@@ -22,9 +22,8 @@ class RepositoryDetailViewController: UIViewController {
     @IBOutlet weak var repositoryForksLabel: UILabel!
     @IBOutlet weak var repositoryStarsLabel: UILabel!
     @IBOutlet weak var repositoryWatchersLabel: UILabel!
-    
-    // MARK: Object lifecycle
-    
+
+    // MARK: Initializer
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
@@ -34,9 +33,8 @@ class RepositoryDetailViewController: UIViewController {
         super.init(coder: aDecoder)
         setup()
     }
-    
+
     // MARK: Setup
-    
     private func setup() {
         let viewController = self
         let interactor = RepositoryDetailInteractor()
@@ -50,8 +48,7 @@ class RepositoryDetailViewController: UIViewController {
         router.dataStore = interactor
     }
     
-    // MARK: View lifecycle
-    
+    // MARK: Lifecycle
     override func viewDidLoad()  {
         super.viewDidLoad()
     }
@@ -66,7 +63,6 @@ class RepositoryDetailViewController: UIViewController {
         let request = RepositoryDetail.GetRepository.Request()
         interactor?.getRepository(request: request)
     }
-    
 }
 
 // MARK: RepositoryDetailDisplayLogic

@@ -7,8 +7,7 @@
 
 import UIKit
 
-@objc protocol RepositoryDetailRoutingLogic {
-}
+@objc protocol RepositoryDetailRoutingLogic {}
 
 protocol RepositoryDetailDataPassing {
     var dataStore: RepositoryDetailDataStore? { get set }

@@ -19,7 +19,7 @@ struct RepositoryModel: Codable {
     let watchers: Int?
     let forks: Int?
     let openIssues: Int?
-
+    
     enum CodingKeys: String, CodingKey {
         case id
         case name

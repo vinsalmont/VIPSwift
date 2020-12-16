@@ -10,7 +10,7 @@ import Alamofire
 protocol Endpoint {
     var method: HTTPMethod { get }
     var path: String { get }
-    var paramters: Parameters? { get }
+    var parameters: Parameters? { get }
     var header: HTTPHeaders? { get }
     var encoding: ParameterEncoding { get }
 }
@@ -39,7 +39,7 @@ class NetworkService {
         DispatchQueue.global(qos: .background).async {
             self.dataRequest = self.dataRequest(url: endpoint.path,
                                                 method: endpoint.method,
-                                                parameters: endpoint.paramters,
+                                                parameters: endpoint.parameters,
                                                 encoding: endpoint.encoding,
                                                 headers: endpoint.header)
             self.dataRequest?.responseData(completionHandler: { (response) in

@@ -12,7 +12,6 @@ enum RepositoriesEndpoint {
 }
 
 extension RepositoriesEndpoint: Endpoint {
-
     var method: HTTPMethod {
         return .get
     }
@@ -24,7 +23,7 @@ extension RepositoriesEndpoint: Endpoint {
         }
     }
 
-    var paramters: Parameters? {
+    var parameters: Parameters? {
         return nil
     }
 

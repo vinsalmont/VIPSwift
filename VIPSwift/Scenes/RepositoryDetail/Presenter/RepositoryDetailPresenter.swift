@@ -13,9 +13,9 @@ protocol RepositoryDetailPresentationLogic {
 
 class RepositoryDetailPresenter: RepositoryDetailPresentationLogic {
     weak var viewController: RepositoryDetailDisplayLogic?
-    
+
     func showRepository(response: RepositoryDetail.GetRepository.Response) {
-        let displayedRepository = RepositoryDetail.GetRepository.ViewModel.DiplayedRepository(
+        let displayedRepository = RepositoryDetail.GetRepository.ViewModel.DisplayedRepository(
             id: response.repository.id ?? 0,
             fullName: response.repository.fullName ?? "",
             description: response.repository.description ?? "",
