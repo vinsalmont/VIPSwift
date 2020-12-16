@@ -37,7 +37,7 @@ class RepositoriesViewControllerTests: XCTestCase {
 
         var searchRepositoriesCalled = false
 
-        func searchRepositories(request: Repositories.FetchRepositories.Request) {
+         func searchRepositories(request: Repositories.FetchRepositories.Request) {
             searchRepositoriesCalled = true
         }
     }
@@ -80,8 +80,13 @@ class RepositoriesViewControllerTests: XCTestCase {
         sut.searchBar(sut.navigationItem.searchController!.searchBar, textDidChange: "swift")
 
         // Then
-//        wait(for: [expectation(description: "Waiting")], timeout: 10)
-        XCTAssert(repositoriesBusinessLogicSpy.searchRepositoriesCalled, "It should search the repositories")
+        let exp = expectation(description: "Test after 1 seconds")
+        let result = XCTWaiter.wait(for: [exp], timeout: 1)
+        if result == XCTWaiter.Result.timedOut {
+            XCTAssert(repositoriesBusinessLogicSpy.searchRepositoriesCalled, "It should search the repositories")
+        } else {
+            XCTFail("Delay interrupted")
+        }
     }
 
     func testShouldPopulateTheTableViewCorrectly() {
@@ -97,5 +102,23 @@ class RepositoriesViewControllerTests: XCTestCase {
 
         // Then
         XCTAssertEqual(numberOfRows, displayedRepositories.count, "The number of items on the Table View should match the repositories array")
+    }
+    
+    func testShouldConfigureTableViewCells() {
+        // Given
+        let tableView = sut.repositoriesTableView
+        let displayedRepositories = [Repositories.FetchRepositories.ViewModel.DisplayedRepository(id: 0, fullName: "repository", description: "description", language: "swift", stars: 10, watchers: 50, login: "vinsalmont", avatarURL: "https://www.google.com")]
+        let viewModel = Repositories.FetchRepositories.ViewModel(displayedRepositories: displayedRepositories)
+
+        // When
+        sut.showRepositories(viewModel: viewModel)
+        let indexPath = IndexPath(row: 0, section: 0)
+        let cell = sut.tableView(tableView!, cellForRowAt: indexPath) as! RepositoryTableViewCell
+        
+        //Then
+        XCTAssertEqual(cell.repositoryNameLabel.text, "repository")
+        XCTAssertEqual(cell.repositoryDescriptionLabel.text, "description")
+        XCTAssertEqual(cell.repositoryLanguageLabel.text, "swift")
+        XCTAssertEqual(cell.startsCountLabel.text, "10")
     }
 }

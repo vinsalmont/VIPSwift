@@ -34,7 +34,7 @@ class RepositoriesInteractor: RepositoriesBusinessLogic, RepositoriesDataStore {
         }, failure: { (error) in
             self.repositories = []
 
-            let repositoriesError = Repositories.FetchRepositories.Error(message: error.localizedDescription)
+            let repositoriesError = Repositories.FetchRepositories.Error(message: error)
 
             self.presenter?.presentError(error: repositoriesError)
         })

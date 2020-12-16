@@ -213,7 +213,7 @@ extension RepositoriesViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.fetchRepositories(_:)), object: searchBar)
-        perform(#selector(self.fetchRepositories(_:)), with: searchBar, afterDelay: 0)
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.fetchRepositories(_:)), object: searchBar)
+        perform(#selector(self.fetchRepositories(_:)), with: searchBar, afterDelay: 0.40)
     }
 }
