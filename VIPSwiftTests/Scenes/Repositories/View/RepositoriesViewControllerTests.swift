@@ -66,7 +66,6 @@ class RepositoriesViewControllerTests: XCTestCase {
 
         // Then
         XCTAssert(tableViewSpy.reloadDataCalled, "Failed")
-
     }
 
     func testShouldFetchRepositoriesByQuery() {

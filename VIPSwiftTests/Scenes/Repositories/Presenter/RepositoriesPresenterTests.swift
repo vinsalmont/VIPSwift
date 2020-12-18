@@ -58,15 +58,15 @@ class RepositoriesPresenterTests: XCTestCase {
         
         // Then
         let displayedRepositories = viewControllerSpy.viewModel.displayedRepositories
-        for displayedOrder in displayedRepositories {
-            XCTAssertEqual(displayedOrder.id, Mocks.referenceModel.id, "The presenter should properly format the id")
-            XCTAssertEqual(displayedOrder.fullName, Mocks.referenceModel.fullName, "The presenter should properly format the full name")
-            XCTAssertEqual(displayedOrder.description, Mocks.referenceModel.description, "The presenter should properly format the description")
-            XCTAssertEqual(displayedOrder.language, Mocks.referenceModel.language, "The presenter should properly format the language")
-            XCTAssertEqual(displayedOrder.stars, Mocks.referenceModel.stars, "The presenter should properly format the starts")
-            XCTAssertEqual(displayedOrder.watchers, Mocks.referenceModel.watchers, "The presenter should properly format the watchers")
-            XCTAssertEqual(displayedOrder.login, Mocks.referenceModel.owner?.login, "The presenter should properly format the login")
-            XCTAssertEqual(displayedOrder.avatarURL, Mocks.referenceModel.owner?.avatarUrl, "The presenter should properly format the avatar url")
+        for displayedRepository in displayedRepositories {
+            XCTAssertEqual(displayedRepository.id, Mocks.referenceModel.id, "The presenter should properly format the id")
+            XCTAssertEqual(displayedRepository.fullName, Mocks.referenceModel.fullName, "The presenter should properly format the full name")
+            XCTAssertEqual(displayedRepository.description, Mocks.referenceModel.description, "The presenter should properly format the description")
+            XCTAssertEqual(displayedRepository.language, Mocks.referenceModel.language, "The presenter should properly format the language")
+            XCTAssertEqual(displayedRepository.stars, Mocks.referenceModel.stars, "The presenter should properly format the starts")
+            XCTAssertEqual(displayedRepository.watchers, Mocks.referenceModel.watchers, "The presenter should properly format the watchers")
+            XCTAssertEqual(displayedRepository.login, Mocks.referenceModel.owner?.login, "The presenter should properly format the login")
+            XCTAssertEqual(displayedRepository.avatarURL, Mocks.referenceModel.owner?.avatarUrl, "The presenter should properly format the avatar url")
         }
     }
     

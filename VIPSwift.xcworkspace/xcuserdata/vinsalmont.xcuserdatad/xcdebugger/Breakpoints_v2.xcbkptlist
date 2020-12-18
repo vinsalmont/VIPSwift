@@ -7,32 +7,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "152170CD-4F27-49DB-B36D-ACAB1DF0FFB0"
+            uuid = "96B4B148-E90D-4E59-B5B1-B350E7AB6AE3"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "VIPSwift/Scenes/Repositories/Interactor/RepositoriesInteractor.swift"
+            filePath = "VIPSwift/Scenes/RepositoryDetail/View/RepositoryDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "searchRepositories(request:)"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "showRepository(viewModel:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CDA80177-A8AB-4BB3-9F31-945E741EE51F"
+            uuid = "D93DE833-D28B-44EE-BCA2-DC9680EC5401"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "VIPSwift/Scenes/Repositories/Interactor/RepositoriesInteractor.swift"
+            filePath = "VIPSwift/Scenes/RepositoryDetail/View/RepositoryDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "searchRepositories(request:)"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "showRepository(viewModel:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EF5C9D6B-ABAC-4841-BB99-A2587F45EE89"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VIPSwift/Scenes/RepositoryDetail/Presenter/RepositoryDetailPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "showRepository(response:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
