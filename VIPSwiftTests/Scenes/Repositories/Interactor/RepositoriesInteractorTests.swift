@@ -13,8 +13,7 @@ class RepositoriesInteractorTests: XCTestCase {
     // MARK: - Subject under test
     var sut: RepositoriesInteractor!
     
-    // MARK: - Test Lifecycle
-    
+    // MARK: - Test Lifecycle    
     override func setUp() {
         super.setUp()
         setupRepositoriesInteractor()
@@ -50,7 +49,7 @@ class RepositoriesInteractorTests: XCTestCase {
         override func searchRepositories(query: String, page: Int, success: @escaping ((RepositoriesResponseModel) -> Void), failure: @escaping ((String) -> Void)) {
             searchRepositoriesCalled = true
             
-            success(RepositoriesResponseModel(totalCount: 1, items: [RepositoryModel(id: 0, name: "name", fullName: "fullName", owner: OwnerModel(id: 0, login: "vinsalmont", avatarUrl: "https://www.google.com", url: "https://www.github.com/vinsalmont"), url: "https://www.github.com/vinsalmont/VIPSwift", description: "description", language: "swift", stars: 10, watchers: 10, forks: 0, openIssues: 0)]))
+            success(Mocks.responseModel)
         }
     }
     

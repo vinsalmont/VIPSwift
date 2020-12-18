@@ -58,7 +58,7 @@ class RepositoriesViewControllerTests: XCTestCase {
         sut.repositoriesTableView = tableViewSpy
         _ = sut.view
 
-        let displayedRepositories = [Repositories.FetchRepositories.ViewModel.DisplayedRepository(id: 0, fullName: "repository", description: "description", language: "swift", stars: 10, watchers: 50, login: "vinsalmont", avatarURL: "https://www.google.com")]
+        let displayedRepositories = [Mocks.displayedRepository]
         let viewModel = Repositories.FetchRepositories.ViewModel(displayedRepositories: displayedRepositories)
 
         // When
@@ -93,7 +93,7 @@ class RepositoriesViewControllerTests: XCTestCase {
         // Given
         let tableView = sut.repositoriesTableView
 
-        let displayedRepositories = [Repositories.FetchRepositories.ViewModel.DisplayedRepository(id: 0, fullName: "repository", description: "description", language: "swift", stars: 10, watchers: 50, login: "vinsalmont", avatarURL: "https://www.google.com")]
+        let displayedRepositories = [Mocks.displayedRepository]
         let viewModel = Repositories.FetchRepositories.ViewModel(displayedRepositories: displayedRepositories)
 
         // When
@@ -107,7 +107,7 @@ class RepositoriesViewControllerTests: XCTestCase {
     func testShouldConfigureTableViewCells() {
         // Given
         let tableView = sut.repositoriesTableView
-        let displayedRepositories = [Repositories.FetchRepositories.ViewModel.DisplayedRepository(id: 0, fullName: "repository", description: "description", language: "swift", stars: 10, watchers: 50, login: "vinsalmont", avatarURL: "https://www.google.com")]
+        let displayedRepositories = [Mocks.displayedRepository]
         let viewModel = Repositories.FetchRepositories.ViewModel(displayedRepositories: displayedRepositories)
 
         // When
@@ -116,7 +116,7 @@ class RepositoriesViewControllerTests: XCTestCase {
         let cell = sut.tableView(tableView!, cellForRowAt: indexPath) as! RepositoryTableViewCell
         
         //Then
-        XCTAssertEqual(cell.repositoryNameLabel.text, "repository")
+        XCTAssertEqual(cell.repositoryNameLabel.text, "fullName")
         XCTAssertEqual(cell.repositoryDescriptionLabel.text, "description")
         XCTAssertEqual(cell.repositoryLanguageLabel.text, "swift")
         XCTAssertEqual(cell.startsCountLabel.text, "10")

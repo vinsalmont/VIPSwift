@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1665A93C24157C19983F1237 /* Pods_VIPSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D5FF72E33799093B3203311 /* Pods_VIPSwift.framework */; };
 		2377DA602589AA2000A412FC /* RepositoriesInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2377DA5F2589AA2000A412FC /* RepositoriesInteractorTests.swift */; };
+		2377DA69258CF07300A412FC /* RepositoriesPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2377DA68258CF07300A412FC /* RepositoriesPresenterTests.swift */; };
+		2377DA74258CF4C000A412FC /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2377DA73258CF4C000A412FC /* Mocks.swift */; };
 		87403A2025885D30009C10AE /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87403A1F25885D30009C10AE /* UIImageView+Ext.swift */; };
 		87403A3C25887035009C10AE /* github-logo.json in Resources */ = {isa = PBXBuildFile; fileRef = 87403A3B25887035009C10AE /* github-logo.json */; };
 		87403A522588752D009C10AE /* RepositoryDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87403A4C2588752D009C10AE /* RepositoryDetailPresenter.swift */; };
@@ -27,7 +29,6 @@
 		87BE957725883B0200815444 /* VIPSwift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 87BE957525883B0200815444 /* VIPSwift.xcdatamodeld */; };
 		87BE957925883B0200815444 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87BE957825883B0200815444 /* Assets.xcassets */; };
 		87BE957C25883B0200815444 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87BE957A25883B0200815444 /* LaunchScreen.storyboard */; };
-		87BE958725883B0200815444 /* VIPSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BE958625883B0200815444 /* VIPSwiftTests.swift */; };
 		87BE959225883B0200815444 /* VIPSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BE959125883B0200815444 /* VIPSwiftUITests.swift */; };
 		87BE95AF25883D3900815444 /* RepositoriesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BE95A925883D3900815444 /* RepositoriesPresenter.swift */; };
 		87BE95B025883D3900815444 /* RepositoriesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BE95AA25883D3900815444 /* RepositoriesWorker.swift */; };
@@ -66,6 +67,8 @@
 
 /* Begin PBXFileReference section */
 		2377DA5F2589AA2000A412FC /* RepositoriesInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesInteractorTests.swift; sourceTree = "<group>"; };
+		2377DA68258CF07300A412FC /* RepositoriesPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesPresenterTests.swift; sourceTree = "<group>"; };
+		2377DA73258CF4C000A412FC /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
 		2AA10F10E1A592DC9A4BBECD /* Pods-VIPSwift-VIPSwiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPSwift-VIPSwiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-VIPSwift-VIPSwiftUITests/Pods-VIPSwift-VIPSwiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		73F08CDD2432F1BFF75FE0C7 /* Pods-VIPSwiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPSwiftTests.release.xcconfig"; path = "Target Support Files/Pods-VIPSwiftTests/Pods-VIPSwiftTests.release.xcconfig"; sourceTree = "<group>"; };
 		80BB82FEA48F4876E083DE4E /* Pods-VIPSwiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPSwiftTests.debug.xcconfig"; path = "Target Support Files/Pods-VIPSwiftTests/Pods-VIPSwiftTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -90,7 +93,6 @@
 		87BE957B25883B0200815444 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87BE957D25883B0200815444 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87BE958225883B0200815444 /* VIPSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VIPSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		87BE958625883B0200815444 /* VIPSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIPSwiftTests.swift; sourceTree = "<group>"; };
 		87BE958825883B0200815444 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87BE958D25883B0200815444 /* VIPSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VIPSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		87BE959125883B0200815444 /* VIPSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIPSwiftUITests.swift; sourceTree = "<group>"; };
@@ -150,6 +152,14 @@
 				2377DA5F2589AA2000A412FC /* RepositoriesInteractorTests.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		2377DA67258CF05D00A412FC /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2377DA68258CF07300A412FC /* RepositoriesPresenterTests.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		4F3E42940F6870B6E235B432 /* Frameworks */ = {
@@ -252,6 +262,7 @@
 		87AA079D258989D80074A872 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				2377DA67258CF05D00A412FC /* Presenter */,
 				2377DA5E2589AA0E00A412FC /* Interactor */,
 				87AA079E258989E40074A872 /* View */,
 			);
@@ -302,8 +313,8 @@
 			isa = PBXGroup;
 			children = (
 				87AA079C258989CA0074A872 /* Scenes */,
-				87BE958625883B0200815444 /* VIPSwiftTests.swift */,
 				87BE958825883B0200815444 /* Info.plist */,
+				2377DA73258CF4C000A412FC /* Mocks.swift */,
 			);
 			path = VIPSwiftTests;
 			sourceTree = "<group>";
@@ -744,9 +755,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2377DA69258CF07300A412FC /* RepositoriesPresenterTests.swift in Sources */,
 				87AA07A225898A140074A872 /* RepositoriesViewControllerTests.swift in Sources */,
-				87BE958725883B0200815444 /* VIPSwiftTests.swift in Sources */,
 				2377DA602589AA2000A412FC /* RepositoriesInteractorTests.swift in Sources */,
+				2377DA74258CF4C000A412FC /* Mocks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
